@@ -7,13 +7,15 @@ require("dotenv").config();
 connectDB();
 
 const authRoute = require("./routes/authRoute");
+const productRoute = require("./routes/productRoute");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const PORT = process.env.PORT;
 
-app.use("", authRoute);
+app.use("/api", authRoute);
+app.use("/api", productRoute);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
