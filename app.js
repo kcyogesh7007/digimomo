@@ -12,6 +12,8 @@ const productRoute = require("./routes/productRoute");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use(express.static("./uploads"));
+
 const PORT = process.env.PORT;
 
 app.use("/api", authRoute);
